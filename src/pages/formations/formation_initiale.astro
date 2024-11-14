@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import PdfList from '../../components/PdfList.astro';
+---
+
+<Layout title="Turbé">
+	<main>
+		<PageHeader title="Turbé" />
+		
+		<section id="documentation" class="section">
+			<h2>Documentation</h2>
+			<div class="content-grid">
+				<div class="doc-card">
+					<h3>Procédures Techniques</h3>
+					<ul>
+						<li>Guide d'utilisation des machines</li>
+						<li>Protocoles de sécurité</li>
+						<li>Maintenance préventive</li>
+					</ul>
+				</div>
+				<div class="doc-card">
+					<h3>Standards Qualité</h3>
+					<ul>
+						<li>Normes ISO</li>
+						<li>Contrôle qualité</li>
+						<li>Certifications</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section id="formation" class="section">
+			<h2>Formation</h2>
+			<div class="content-grid">
+				<div class="training-card">
+					<h3>Formation Initiale</h3>
+					<p>Programme complet pour les nouveaux employés</p>
+					<PdfList folder="turbe/formation_initiale" />
+				</div>
+				<div class="training-card">
+					<h3>Formation Continue</h3>
+					<p>Modules de perfectionnement technique</p>
+					<PdfList folder="turbe/formation_continue" />
+				</div>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 2rem;
+		width: 1000px;
+		max-width: calc(100% - 2rem);
+		color: #333;
+	}
+	.section {
+		margin-bottom: 4rem;
+	}
+	h2 {
+		color: var(--primary-color);
+		font-size: 2rem;
+		margin-bottom: 2rem;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid var(--primary-color);
+	}
+	.content-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+	}
+	.doc-card, .training-card {
+		background: white;
+		padding: 2rem;
+		border-radius: 10px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	.doc-card h3, .training-card h3 {
+		color: var(--primary-color);
+		margin-bottom: 1rem;
+	}
+	.doc-card ul {
+		list-style: none;
+		padding: 0;
+	}
+	.doc-card li {
+		margin-bottom: 0.5rem;
+		padding-left: 1.5rem;
+		position: relative;
+	}
+	.doc-card li:before {
+		content: "•";
+		color: var(--primary-color);
+		position: absolute;
+		left: 0;
+	}
+	.training-card {
+		text-align: center;
+	}
+	.btn {
+		display: inline-block;
+		padding: 0.5rem 2rem;
+		background: var(--primary-color);
+		color: white;
+		text-decoration: none;
+		border-radius: 20px;
+		margin-top: 1rem;
+		transition: background 0.2s ease;
+	}
+	.btn:hover {
+		background: rgba(23,71,158,0.8);
+	}
+</style>

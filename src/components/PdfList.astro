@@ -1,0 +1,119 @@
+---
+interface Props {
+  folder: string;
+}
+
+const { folder } = Astro.props;
+
+// Cette fonction sera utilisée pour lister les PDFs du dossier
+const getPdfs = async () => {
+  try {
+    const files = await Astro.glob('/public/docs/**/*.pdf');
+    return files.filter(file => file.default.includes(folder));
+  } catch (error) {
+    console.error('Erreur lors du chargement des PDFs:', error);
+    return [];
+  }
+};
+
+const pdfs = await getPdfs();
+---
+
+<div class="pdf-list">
+  <div class="upload-zone">
+    <label for="pdf-upload-{folder}" class="upload-label">
+      <span class="icon">📄</span>
+      Déposer ou cliquer pour ajouter un PDF
+    </label>
+    <input 
+      type="file" 
+      id="pdf-upload-{folder}" 
+      accept=".pdf"
+      class="hidden-input"
+    />
+  </div>
+
+  <div class="files-list">
+    {pdfs.map((pdf) => (
+      <div class="pdf-item">
+        <span class="pdf-name">{pdf.default.split('/').pop()}</span>
+        <a href={pdf.default} class="view-btn" target="_blank">Voir</a>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .pdf-list {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+  }
+
+  .upload-zone {
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .upload-zone:hover {
+    background-color: var(--primary-light);
+  }
+
+  .upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    cursor: pointer;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  .hidden-input {
+    display: none;
+  }
+
+  .files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .pdf-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background: var(--primary-light);
+    border-radius: 6px;
+  }
+
+  .pdf-name {
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+
+  .view-btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 1rem;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .view-btn:hover {
+    background: rgba(23,71,158,0.8);
+  }
+</style>

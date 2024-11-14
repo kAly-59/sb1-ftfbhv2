@@ -1,0 +1,55 @@
+---
+interface Props {
+	name: string;
+	href: string;
+}
+
+const { name, href } = Astro.props;
+---
+
+<a href={href} class="company-card">
+	<h2>{name}</h2>
+	<div class="card-overlay"></div>
+</a>
+
+<style>
+	.company-card {
+		position: relative;
+		background: rgba(23,71,158,0.9);
+		border-radius: 15px;
+		padding: 2rem;
+		text-decoration: none;
+		color: white;
+		transition: transform 0.2s ease;
+		height: 200px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		box-shadow: 0 4px 6px rgba(23,71,158,0.2);
+	}
+	.company-card:hover {
+		transform: translateY(-5px);
+	}
+	.company-card h2 {
+		font-size: 2rem;
+		font-weight: 600;
+		margin: 0;
+		text-align: center;
+		position: relative;
+		z-index: 2;
+	}
+	.card-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(45deg, rgba(23,71,158,0.8), rgba(23,71,158,0.4));
+		opacity: 0;
+		transition: opacity 0.2s ease;
+	}
+	.company-card:hover .card-overlay {
+		opacity: 1;
+	}
+</style>

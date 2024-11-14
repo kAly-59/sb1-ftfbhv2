@@ -1,0 +1,40 @@
+---
+interface Props {
+  title: string;
+  pdfUrl: string;
+}
+
+const { title, pdfUrl } = Astro.props;
+---
+
+<div class="pdf-container">
+  <h4>{title}</h4>
+  <div class="pdf-viewer">
+    <iframe src={pdfUrl} title={title}></iframe>
+  </div>
+</div>
+
+<style>
+  .pdf-container {
+    margin-bottom: 1rem;
+  }
+  
+  h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .pdf-viewer {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+</style>

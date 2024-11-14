@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompanyCard from '../components/CompanyCard.astro';
+---
+
+<Layout title="Accueil">
+	<main>
+		<h1>Wiki <span class="brand-text">SSOCL</span></h1>
+		<p class="tagline">
+			L'expertise partagée au service de l'excellence industrielle
+		</p>
+		
+		<div class="company-grid">		
+			<CompanyCard name="Turbé" href="/entreprises/turbe" />
+			<CompanyCard name="Assemblex" href="entreprises/assemblex" />
+			<CompanyCard name="Bande Services" href="entreprises/bande_service" />
+			<CompanyCard name="Peintou" href="entreprises/peintou" />
+      <CompanyCard name="Uti-Métallerie" href="entreprises/uti_metallerie" />
+		</div>
+
+		<div class="features">
+			<div class="feature">
+				<h3>Documentation</h3>
+				<p>Accédez à toute la documentation technique et aux procédures de nos entreprises</p>
+			</div>
+			<div class="feature">
+				<h3>Formation</h3>
+				<p>Développez vos compétences avec nos modules de formation spécialisés</p>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 2rem;
+		width: 1000px;
+		max-width: calc(100% - 2rem);
+		color: #333;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 0.5em;
+		color: #333;
+	}
+	.brand-text {
+		color: rgba(23,71,158,255);
+	}
+	.tagline {
+		text-align: center;
+		margin-bottom: 3rem;
+		font-size: 1.5rem;
+		color: #666;
+		font-style: italic;
+	}
+	.company-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		padding: 0;
+		margin-bottom: 4rem;
+	}
+	.features {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2rem;
+		margin-top: 4rem;
+		padding: 2rem;
+		background: var(--primary-light);
+		border-radius: 15px;
+	}
+	.feature {
+		text-align: center;
+		padding: 1.5rem;
+	}
+	.feature h3 {
+		color: var(--primary-color);
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+	.feature p {
+		color: #666;
+		line-height: 1.6;
+	}
+</style>
