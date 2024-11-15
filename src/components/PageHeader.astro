@@ -1,21 +1,25 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
+const { fullTitle } = Astro.props;
 ---
-
 <header class="page-header">
-	<h1>{title}</h1>
+	<h1>
+	  <span class="title-ent">{fullTitle}</span> | <span class="title-wiki">Wiki SSOCL</span>
+	</h1>
 	<nav class="tabs">
-		<h3><a href="/" class="tab">Accueil</a></h3>
-		<!-- <a href="#documentation" class="tab">Documentation</a> -->	
-		<!-- <a href="#formation" class="tab">Formation</a> -->	
+	  <h3><a href="/" class="tab">Accueil</a></h3>
 	</nav>
-</header>
+  </header>
+
 
 <style>
+	.title-ent {
+	color: rgb(49, 48, 48); /* Le titre "Turbé" sera blanc */
+	}
+
+	.title-wiki {
+	color: rgba(23,71,158,255); /* Le "Wiki SSOCL" restera bleu */
+	}
+
 	.page-header {
 		padding: 2rem 0;
 		text-align: center;

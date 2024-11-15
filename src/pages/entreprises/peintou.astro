@@ -1,52 +1,61 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import PageHeader from '../../components/PageHeader.astro';
-import PdfList from '../../components/PdfList.astro';
 ---
 
-<Layout title="Peintou">
+<Layout title="Peitou">
 	<main>
-		<PageHeader title="Peintou" />
-		
-		<section id="documentation" class="section">
-			<h2>Documentation</h2>
-			<div class="content-grid">
-				<div class="doc-card">
-					<h3>Procédures Techniques</h3>
-					<ul>
-						<li>Guide d'utilisation des machines</li>
-						<li>Protocoles de sécurité</li>
-						<li>Maintenance préventive</li>
-					</ul>
-				</div>
-				<div class="doc-card">
-					<h3>Standards Qualité</h3>
-					<ul>
-						<li>Normes ISO</li>
-						<li>Contrôle qualité</li>
-						<li>Certifications</li>
-					</ul>
-				</div>
-			</div>
-		</section>
+		<PageHeader fullTitle="Peintou" />	
+			<section id="formation" class="section">
+					<h2>Formation</h2>
+					<div class="content-grid">
+						<div class="training-card">
+							<h3>
+								<a href="/formations/formation_initiale" class="tab">Formation Initiale</a>
+							</h3>
+							<p>Programme complet pour les nouveaux employés</p>
+						</div>
+						<div class="training-card">
+							<h3>
+								<a href="/formations/formation_continue" class="tab">Formation Continue</a>
+							</h3>
+							<p>Modules de perfectionnement technique</p>
+						</div>
+					</div>
+				</section>
 
-		<section id="formation" class="section">
-			<h2>Formation</h2>
-			<div class="content-grid">
-				<div class="training-card">
-					<h3>Formation Initiale</h3>
-					<p>Programme complet pour les nouveaux employés</p>
-					<a href="#" class="btn">Accéder</a>
+				<section id="formation" class="section">
+					<h2>Documentation</h2>
+					<div class="content-grid">
+						<div class="training-card">
+							<div class="doc-card">				
+								<h3>
+									<a href="/formations/procedure_technique" class="tab">Procédure technique</a>
+								</h3>
+								<ul>
+								<li>Normes ISO</li>
+								<li>Contrôle qualité</li>
+								<li>Certifications</li>
+								</ul>
+							</div>
+						</div>
+					<div class="training-card">								 
+					 	<div class="doc-card">				
+							<h3>
+								<a href="/formations/standars_qualite" class="tab">Standards Qualité</a>
+							</h3>
+								<ul>
+									<li>Guide d'utilisation des machines</li>
+									<li>Protocoles de sécurité</li>
+									<li>Maintenance préventive</li>
+								</ul>
+						</div>
+					</div>
 				</div>
-				<div class="training-card">
-					<h3>Formation Continue</h3>
-					<p>Modules de perfectionnement technique</p>
-					<PdfList folder="peintou/formation-continue" />
-				</div>
-			</div>
-		</section>
+			</section>
 	</main>
 </Layout>
+
 
 <style>
 	main {
@@ -72,7 +81,7 @@ import PdfList from '../../components/PdfList.astro';
 		gap: 2rem;
 	}
 	.doc-card, .training-card {
-		background: white;
+		background: rgb(255, 255, 255);
 		padding: 2rem;
 		border-radius: 10px;
 		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -87,7 +96,7 @@ import PdfList from '../../components/PdfList.astro';
 	}
 	.doc-card li {
 		margin-bottom: 0.5rem;
-		padding-left: 1.5rem;
+		padding-left: .5rem;
 		position: relative;
 	}
 	.doc-card li:before {
@@ -112,4 +121,23 @@ import PdfList from '../../components/PdfList.astro';
 	.btn:hover {
 		background: rgba(23,71,158,0.8);
 	}
+
+	.tabs {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+	}
+	.tab {
+		padding: 0.5rem 2rem;
+		color: rgba(23,71,158,255);
+		text-decoration: none;
+		border-radius: 20px;
+		transition: all 0.2s ease;
+		border: 2px solid rgba(23,71,158,255);
+	}
+	.tab:hover {
+		background: rgba(23,71,158,255);
+		color: white;
+	}
+	
 </style>
