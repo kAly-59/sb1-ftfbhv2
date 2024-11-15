@@ -5,7 +5,7 @@ interface Props {
 
 const { folder } = Astro.props;
 
-// Cette fonction sera utilisée pour lister les PDFs du dossier
+// Function PDF
 const getPdfs = async () => {
   try {
     const files = await Astro.glob('/public/docs/**/*.pdf');

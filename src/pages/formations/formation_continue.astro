@@ -9,7 +9,7 @@ import PdfList from '../../components/PdfList.astro';
 		<PageHeader title="Turbé" />
 		
 		<section id="documentation" class="section">
-			<h2>Documentation</h2>
+			<h2>Formation Continue</h2>
 			<div class="content-grid">
 				<div class="doc-card">
 					<h3>Procédures Techniques</h3>
@@ -18,32 +18,18 @@ import PdfList from '../../components/PdfList.astro';
 						<li>Protocoles de sécurité</li>
 						<li>Maintenance préventive</li>
 					</ul>
+					<PdfList folder="turbe/formation_initiale" />
 				</div>
 				<div class="doc-card">
 					<h3>Standards Qualité</h3>
 					<ul>
 						<li>Normes ISO</li>
 						<li>Contrôle qualité</li>
-						<li>Certifications</li>
+						<li>Certifications</li>						
 					</ul>
-				</div>
-			</div>
-		</section>
-
-		<section id="formation" class="section">
-			<h2>Formation</h2>
-			<div class="content-grid">
-				<div class="training-card">
-					<h3>Formation Initiale</h3>
-					<p>Programme complet pour les nouveaux employés</p>
 					<PdfList folder="turbe/formation_initiale" />
-				</div>
-				<div class="training-card">
-					<h3>Formation Continue</h3>
-					<p>Modules de perfectionnement technique</p>
-					<PdfList folder="turbe/formation_continue" />
-				</div>
-			</div>
+				</div>			
+			</div>		
 		</section>
 	</main>
 </Layout>
