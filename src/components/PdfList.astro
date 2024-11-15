@@ -5,11 +5,10 @@ interface Props {
 
 const { folder } = Astro.props;
 
-// Fonction pour récupérer les fichiers PDF à partir du dossier public
+// Function PDF
 const getPdfs = async () => {
   try {
-    // Utilisation d'un chemin statique pour Astro.glob
-    const files = await Astro.glob('./public/pdf/**/*.pdf');
+    const files = await Astro.glob('/public/docs/**/*.pdf');
     return files.filter(file => file.default.includes(folder));
   } catch (error) {
     console.error('Erreur lors du chargement des PDFs:', error);
@@ -22,13 +21,13 @@ const pdfs = await getPdfs();
 
 <div class="pdf-list">
   <div class="upload-zone">
-    <label for={`pdf-upload-${folder}`} class="upload-label">
+    <label for="pdf-upload-{folder}" class="upload-label">
       <span class="icon">📄</span>
       Déposer ou cliquer pour ajouter un PDF
     </label>
     <input 
       type="file" 
-      id={`pdf-upload-${folder}`} 
+      id="pdf-upload-{folder}" 
       accept=".pdf"
       class="hidden-input"
     />
